@@ -52,28 +52,43 @@
     <Compile Include="AgregarSeguro.Designer.cs">
       <DependentUpon>AgregarSeguro.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformacionVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformacionVenta.Designer.cs">
+      <DependentUpon>InformacionVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ventas.cs">
+    <Compile Include="Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas.Designer.cs">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VentasUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentasUsuarios.Designer.cs">
+      <DependentUpon>VentasUsuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AgregarSeguro.resx">
       <DependentUpon>AgregarSeguro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformacionVenta.resx">
+      <DependentUpon>InformacionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas.resx">
-      <DependentUpon>Ventas.cs</DependentUpon>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VentasUsuarios.resx">
+      <DependentUpon>VentasUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{cfba93fd-ed7f-493d-932d-a1dfda0b80fe}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{19893f6f-76de-4a12-b0b4-dedffcf5a5e1}</Project>
       <Name>CapaNegocio</Name>

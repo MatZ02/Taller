@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BtnVentas = new System.Windows.Forms.Button();
-            this.BtnSeguros = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.BtnSalir = new System.Windows.Forms.Button();
+            this.BtnMostrarUsuarios = new System.Windows.Forms.Button();
+            this.BtnSeguros = new System.Windows.Forms.Button();
+            this.BtnVentas = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
             this.groupBox1.Controls.Add(this.BtnSalir);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.BtnMostrarUsuarios);
             this.groupBox1.Controls.Add(this.BtnSeguros);
             this.groupBox1.Controls.Add(this.BtnVentas);
             this.groupBox1.Controls.Add(this.label1);
@@ -50,52 +50,6 @@
             this.groupBox1.Size = new System.Drawing.Size(599, 426);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(204, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenido";
-            // 
-            // BtnVentas
-            // 
-            this.BtnVentas.BackColor = System.Drawing.Color.LightGray;
-            this.BtnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVentas.Location = new System.Drawing.Point(127, 116);
-            this.BtnVentas.Name = "BtnVentas";
-            this.BtnVentas.Size = new System.Drawing.Size(151, 89);
-            this.BtnVentas.TabIndex = 1;
-            this.BtnVentas.Text = "Ventas";
-            this.BtnVentas.UseVisualStyleBackColor = false;
-            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
-            // 
-            // BtnSeguros
-            // 
-            this.BtnSeguros.BackColor = System.Drawing.Color.LightGray;
-            this.BtnSeguros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSeguros.Location = new System.Drawing.Point(320, 116);
-            this.BtnSeguros.Name = "BtnSeguros";
-            this.BtnSeguros.Size = new System.Drawing.Size(151, 89);
-            this.BtnSeguros.TabIndex = 2;
-            this.BtnSeguros.Text = "Seguros";
-            this.BtnSeguros.UseVisualStyleBackColor = false;
-            this.BtnSeguros.Click += new System.EventHandler(this.BtnSeguros_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightGray;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(118, 236);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 89);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // BtnSalir
             // 
@@ -112,6 +66,53 @@
             this.BtnSalir.Text = "Salir";
             this.BtnSalir.UseVisualStyleBackColor = false;
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // BtnMostrarUsuarios
+            // 
+            this.BtnMostrarUsuarios.BackColor = System.Drawing.Color.LightGray;
+            this.BtnMostrarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMostrarUsuarios.Location = new System.Drawing.Point(127, 236);
+            this.BtnMostrarUsuarios.Name = "BtnMostrarUsuarios";
+            this.BtnMostrarUsuarios.Size = new System.Drawing.Size(151, 89);
+            this.BtnMostrarUsuarios.TabIndex = 3;
+            this.BtnMostrarUsuarios.Text = "Usuarios";
+            this.BtnMostrarUsuarios.UseVisualStyleBackColor = false;
+            this.BtnMostrarUsuarios.Click += new System.EventHandler(this.BtnMostrarUsuarios_Click);
+            // 
+            // BtnSeguros
+            // 
+            this.BtnSeguros.BackColor = System.Drawing.Color.LightGray;
+            this.BtnSeguros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSeguros.Location = new System.Drawing.Point(320, 116);
+            this.BtnSeguros.Name = "BtnSeguros";
+            this.BtnSeguros.Size = new System.Drawing.Size(151, 89);
+            this.BtnSeguros.TabIndex = 2;
+            this.BtnSeguros.Text = "Ventas";
+            this.BtnSeguros.UseVisualStyleBackColor = false;
+            this.BtnSeguros.Click += new System.EventHandler(this.BtnSeguros_Click);
+            // 
+            // BtnVentas
+            // 
+            this.BtnVentas.BackColor = System.Drawing.Color.LightGray;
+            this.BtnVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVentas.Location = new System.Drawing.Point(127, 116);
+            this.BtnVentas.Name = "BtnVentas";
+            this.BtnVentas.Size = new System.Drawing.Size(151, 89);
+            this.BtnVentas.TabIndex = 1;
+            this.BtnVentas.Text = "Seguros";
+            this.BtnVentas.UseVisualStyleBackColor = false;
+            this.BtnVentas.Click += new System.EventHandler(this.BtnVentas_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(204, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bienvenido";
             // 
             // Principal
             // 
@@ -135,7 +136,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnSalir;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnMostrarUsuarios;
         private System.Windows.Forms.Button BtnSeguros;
         private System.Windows.Forms.Button BtnVentas;
     }

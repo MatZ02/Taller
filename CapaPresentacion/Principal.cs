@@ -37,7 +37,15 @@ namespace CapaPresentacion
 
         private void BtnSeguros_Click(object sender, EventArgs e)
         {
-            Ventas formularioNuevo = new Ventas();
+            VentasUsuarios formularioNuevo = new VentasUsuarios();
+            formularioNuevo.FormClosed += (s, args) => this.Show();
+            formularioNuevo.Show();
+            this.Hide();
+        }
+
+        private void BtnMostrarUsuarios_Click(object sender, EventArgs e)
+        {
+            Usuarios formularioNuevo = new Usuarios();
             formularioNuevo.FormClosed += (s, args) => this.Show();
             formularioNuevo.Show();
             this.Hide();

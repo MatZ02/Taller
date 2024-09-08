@@ -53,7 +53,7 @@
             this.groupBox4.Controls.Add(this.dataGridView1);
             this.groupBox4.Location = new System.Drawing.Point(62, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(348, 414);
+            this.groupBox4.Size = new System.Drawing.Size(395, 414);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             // 
@@ -87,13 +87,14 @@
             this.btnAgregarSeguro.TabIndex = 5;
             this.btnAgregarSeguro.Text = "Agregar";
             this.btnAgregarSeguro.UseVisualStyleBackColor = false;
+            this.btnAgregarSeguro.Click += new System.EventHandler(this.btnAgregarSeguro_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(64, 138);
+            this.label4.Location = new System.Drawing.Point(64, 164);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 12;
@@ -102,7 +103,7 @@
             // txtValor
             // 
             this.txtValor.BackColor = System.Drawing.Color.LightGray;
-            this.txtValor.Location = new System.Drawing.Point(106, 135);
+            this.txtValor.Location = new System.Drawing.Point(106, 161);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(116, 20);
             this.txtValor.TabIndex = 11;
@@ -112,7 +113,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(30, 164);
+            this.label3.Location = new System.Drawing.Point(30, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 10;
@@ -121,7 +122,7 @@
             // TxtIncremento
             // 
             this.TxtIncremento.BackColor = System.Drawing.Color.LightGray;
-            this.TxtIncremento.Location = new System.Drawing.Point(106, 161);
+            this.TxtIncremento.Location = new System.Drawing.Point(106, 135);
             this.TxtIncremento.Name = "TxtIncremento";
             this.TxtIncremento.Size = new System.Drawing.Size(116, 20);
             this.TxtIncremento.TabIndex = 9;
@@ -186,13 +187,14 @@
             this.BtnMostrar.TabIndex = 14;
             this.BtnMostrar.Text = "Mostrar";
             this.BtnMostrar.UseVisualStyleBackColor = false;
+            this.BtnMostrar.Click += new System.EventHandler(this.BtnMostrar_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(336, 383);
+            this.dataGridView1.Size = new System.Drawing.Size(383, 383);
             this.dataGridView1.TabIndex = 0;
             // 
             // AgregarSeguro

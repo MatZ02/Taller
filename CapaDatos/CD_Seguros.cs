@@ -25,8 +25,15 @@ namespace CapaDatos
             public string CodigoSeguro { get; set; }
             public Usuario Cliente { get; set; }
             public int CantidadBeneficiarios { get; set; }
+            public decimal ValorBase { get; set; }
+            public decimal IncrementoPorTipo { get; set; }
+            public decimal IncrementoPorBeneficiario { get; set; }
+            public decimal ValorBeneficio { get; set; }
+            public decimal ValorPorBeneficiario { get; set; }
             public decimal ValorTotal { get; set; }
         }
+
+
         public string getmensaje() { return mensaje; }
 
         List<string> listaSeguros = new List<string>();
@@ -36,6 +43,7 @@ namespace CapaDatos
 
         private string rutaSeguros = @"C:\Users\PC\Documents\Seguros.txt";
         private string rutaUsuariosVentas = @"C:\Users\PC\Documents\UsuariosVentas.txt";
+        private string rutaVentas = @"C:\Users\PC\Documents\Ventas";
 
         public void GuardarSeguro(Seguro seguro)
         {
@@ -141,8 +149,9 @@ namespace CapaDatos
         }
 
 
-        public List<string> ListadoSeguro()
+        public List<Seguro> ListadoSeguros()
         {
+            List<Seguro> listaSeguros = new List<Seguro>();
             try
             {
                 using (var archivo = new FileStream(rutaSeguros, FileMode.Open, FileAccess.Read))
@@ -151,7 +160,15 @@ namespace CapaDatos
                     string linea;
                     while ((linea = lector.ReadLine()) != null)
                     {
-                        listaSeguros.Add(linea);
+                        var datos = linea.Split(',');
+                        var seguro = new Seguro
+                        {
+                            Codigo = datos[0],
+                            Tipo = datos[1],
+                            PorcentajeIncremento = decimal.Parse(datos[2]),
+                            Valor = decimal.Parse(datos[3])
+                        };
+                        listaSeguros.Add(seguro);
                     }
                 }
             }
@@ -162,8 +179,9 @@ namespace CapaDatos
             return listaSeguros;
         }
 
-        public List<string> ListadoUsuario()
+        public List<Usuario> ListadoUsuarios()
         {
+            List<Usuario> listaUsuarios = new List<Usuario>();
             try
             {
                 using (var archivo = new FileStream(rutaUsuariosVentas, FileMode.Open, FileAccess.Read))
@@ -172,7 +190,14 @@ namespace CapaDatos
                     string linea;
                     while ((linea = lector.ReadLine()) != null)
                     {
-                        listaUsuarios.Add(linea);
+                        var datos = linea.Split(',');
+                        var usuario = new Usuario
+                        {
+                            Id = datos[0],
+                            Nombre = datos[1],
+                            Contacto = datos[2]
+                        };
+                        listaUsuarios.Add(usuario);
                     }
                 }
             }
@@ -182,7 +207,55 @@ namespace CapaDatos
             }
             return listaUsuarios;
         }
-
-
+        public void GuardarVenta(Venta venta)
+        {
+            try
+            {
+                using (var archivo = new FileStream(rutaVentas, FileMode.Append, FileAccess.Write))
+                using (var escritor = new StreamWriter(archivo))
+                {
+                    escritor.WriteLine($"{venta.CodigoSeguro},{venta.Cliente.Id},{venta.Cliente.Nombre},{venta.Cliente.Contacto},{venta.CantidadBeneficiarios},{venta.ValorTotal}");
+                }
+            }
+            catch (IOException ex)
+            {
+                mensaje = "ERROR: " + ex.Message;
+            }
+        }
+        public List<Venta> ListadoVentas()
+        {
+            List<Venta> listaVentas = new List<Venta>();
+            try
+            {
+                using (var archivo = new FileStream(rutaVentas, FileMode.Open, FileAccess.Read))
+                using (var lector = new StreamReader(archivo))
+                {
+                    string linea;
+                    while ((linea = lector.ReadLine()) != null)
+                    {
+                        var datos = linea.Split(',');
+                        var venta = new Venta
+                        {
+                            CodigoSeguro = datos[0],
+                            Cliente = new Usuario
+                            {
+                                Id = datos[1],
+                                Nombre = datos[2],
+                                Contacto = datos[3]
+                            },
+                            CantidadBeneficiarios = int.Parse(datos[4]),
+                            ValorTotal = decimal.Parse(datos[5])
+                        };
+                        listaVentas.Add(venta);
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                mensaje = "ERROR: " + ex.Message;
+            }
+            return listaVentas;
+        }
     }
 }
+
