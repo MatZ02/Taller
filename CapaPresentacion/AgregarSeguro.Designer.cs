@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAgregarSeguro = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,28 +41,21 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.BtnRegresarSeguro = new System.Windows.Forms.Button();
             this.BtnMostrar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(79)))), ((int)(((byte)(79)))));
-            this.groupBox4.Controls.Add(this.listBox1);
+            this.groupBox4.Controls.Add(this.dataGridView1);
             this.groupBox4.Location = new System.Drawing.Point(62, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(348, 414);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.LightGray;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(14, 16);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(322, 381);
-            this.listBox1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -79,9 +71,9 @@
             this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Location = new System.Drawing.Point(498, 12);
+            this.groupBox1.Location = new System.Drawing.Point(483, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(253, 414);
+            this.groupBox1.Size = new System.Drawing.Size(268, 414);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
@@ -89,7 +81,7 @@
             // 
             this.btnAgregarSeguro.BackColor = System.Drawing.Color.LightGray;
             this.btnAgregarSeguro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregarSeguro.Location = new System.Drawing.Point(19, 228);
+            this.btnAgregarSeguro.Location = new System.Drawing.Point(33, 227);
             this.btnAgregarSeguro.Name = "btnAgregarSeguro";
             this.btnAgregarSeguro.Size = new System.Drawing.Size(96, 31);
             this.btnAgregarSeguro.TabIndex = 5;
@@ -101,7 +93,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(50, 139);
+            this.label4.Location = new System.Drawing.Point(64, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 12;
@@ -110,7 +102,7 @@
             // txtValor
             // 
             this.txtValor.BackColor = System.Drawing.Color.LightGray;
-            this.txtValor.Location = new System.Drawing.Point(92, 136);
+            this.txtValor.Location = new System.Drawing.Point(106, 135);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(116, 20);
             this.txtValor.TabIndex = 11;
@@ -120,7 +112,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(16, 165);
+            this.label3.Location = new System.Drawing.Point(30, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 10;
@@ -129,7 +121,7 @@
             // TxtIncremento
             // 
             this.TxtIncremento.BackColor = System.Drawing.Color.LightGray;
-            this.TxtIncremento.Location = new System.Drawing.Point(92, 162);
+            this.TxtIncremento.Location = new System.Drawing.Point(106, 161);
             this.TxtIncremento.Name = "TxtIncremento";
             this.TxtIncremento.Size = new System.Drawing.Size(116, 20);
             this.TxtIncremento.TabIndex = 9;
@@ -139,7 +131,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 113);
+            this.label2.Location = new System.Drawing.Point(14, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 8;
@@ -148,7 +140,7 @@
             // txtTipo
             // 
             this.txtTipo.BackColor = System.Drawing.Color.LightGray;
-            this.txtTipo.Location = new System.Drawing.Point(92, 110);
+            this.txtTipo.Location = new System.Drawing.Point(106, 109);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(116, 20);
             this.txtTipo.TabIndex = 7;
@@ -158,7 +150,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(40, 87);
+            this.label1.Location = new System.Drawing.Point(54, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 6;
@@ -167,7 +159,7 @@
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.LightGray;
-            this.txtCodigo.Location = new System.Drawing.Point(92, 84);
+            this.txtCodigo.Location = new System.Drawing.Point(106, 83);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(116, 20);
             this.txtCodigo.TabIndex = 5;
@@ -176,7 +168,7 @@
             // 
             this.BtnRegresarSeguro.BackColor = System.Drawing.Color.LightGray;
             this.BtnRegresarSeguro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnRegresarSeguro.Location = new System.Drawing.Point(75, 265);
+            this.BtnRegresarSeguro.Location = new System.Drawing.Point(89, 264);
             this.BtnRegresarSeguro.Name = "BtnRegresarSeguro";
             this.BtnRegresarSeguro.Size = new System.Drawing.Size(96, 31);
             this.BtnRegresarSeguro.TabIndex = 13;
@@ -188,12 +180,20 @@
             // 
             this.BtnMostrar.BackColor = System.Drawing.Color.LightGray;
             this.BtnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnMostrar.Location = new System.Drawing.Point(130, 228);
+            this.BtnMostrar.Location = new System.Drawing.Point(144, 227);
             this.BtnMostrar.Name = "BtnMostrar";
             this.BtnMostrar.Size = new System.Drawing.Size(96, 31);
             this.BtnMostrar.TabIndex = 14;
             this.BtnMostrar.Text = "Mostrar";
             this.BtnMostrar.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(336, 383);
+            this.dataGridView1.TabIndex = 0;
             // 
             // AgregarSeguro
             // 
@@ -209,6 +209,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,7 +217,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAgregarSeguro;
         private System.Windows.Forms.Label label4;
@@ -229,5 +229,6 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button BtnRegresarSeguro;
         private System.Windows.Forms.Button BtnMostrar;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using static CapaDatos.CD_Seguros;
 
 namespace CapaDatos
 {
@@ -24,19 +23,15 @@ namespace CapaDatos
         public class Venta
         {
             public string CodigoSeguro { get; set; }
-            public Usuario Cliente { get; set; } 
+            public Usuario Cliente { get; set; }
             public int CantidadBeneficiarios { get; set; }
             public decimal ValorTotal { get; set; }
         }
-         public string getmensaje() { return mensaje; }
-
-
-        FileStream archivo = null;
-        StreamWriter escritor = null;
-        StreamReader lector = null;
+        public string getmensaje() { return mensaje; }
 
         List<string> listaSeguros = new List<string>();
         List<string> listaUsuarios = new List<string>();
+
         private string mensaje = "";
 
         private string rutaSeguros = @"C:\Users\PC\Documents\Seguros.txt";
