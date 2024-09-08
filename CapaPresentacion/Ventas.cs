@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class Ventas : Form
     {
-        public Form1()
+        public Ventas()
         {
             InitializeComponent();
         }
 
-        private void btnAgregarSeguro_Click(object sender, EventArgs e)
+        private void BtnRegresar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

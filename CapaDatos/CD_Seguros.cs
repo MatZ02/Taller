@@ -1,18 +1,34 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using static CapaDatos.CD_Seguros;
 
 namespace CapaDatos
 {
     public class CD_Seguros
     {
-        private string codigo;
-        private string tipoSeguro;
-        private string incremento;
-        private string valor;
-        private string IdUsuario;
-        private string NombreUsuario;
-        private string ContactoUsuario;
-        
+        public class Seguro
+        {
+            public string Codigo { get; set; }
+            public string Tipo { get; set; }
+            public decimal PorcentajeIncremento { get; set; }
+            public decimal Valor { get; set; }
+        }
+        public class Usuario
+        {
+            public string Id { get; set; }
+            public string Nombre { get; set; }
+            public string Contacto { get; set; }
+        }
+
+
+        public class Venta
+        {
+            public string CodigoSeguro { get; set; }
+            public Usuario Cliente { get; set; } 
+            public int CantidadBeneficiarios { get; set; }
+            public decimal ValorTotal { get; set; }
+        }
+         public string getmensaje() { return mensaje; }
 
 
         FileStream archivo = null;
@@ -26,159 +42,152 @@ namespace CapaDatos
         private string rutaSeguros = @"C:\Users\PC\Documents\Seguros.txt";
         private string rutaUsuariosVentas = @"C:\Users\PC\Documents\UsuariosVentas.txt";
 
-        public string Codigo { get => codigo; set => codigo = value; }
-        public string TipoSeguro { get => tipoSeguro; set => tipoSeguro = value; }
-        public string Incremento { get => incremento; set => incremento = value; }
-        public string Valor { get => valor; set => valor = value; }
-        public string IdUsuario1 { get => IdUsuario; set => IdUsuario = value; }
-        public string NombreUsuario1 { get => NombreUsuario; set => NombreUsuario = value; }
-        public string ContactoUsuario1 { get => ContactoUsuario; set => ContactoUsuario = value; }
-        public string getmensaje() {  return mensaje; }
-
-        public void guardarSeguros(string cod, string tipo, string incremento, string valor)
-        {
-
-            try
-            {
-                archivo = new FileStream(rutaSeguros, FileMode.Append, FileAccess.Write);
-                escritor = new StreamWriter(archivo);
-                escritor.WriteLine(cod + "," + tipo + "," + incremento + ", " + valor);
-                escritor.Close();
-                mensaje = ("se ha registrado el seguro");
-
-            }
-            catch (IOException ex)
-            {
-                mensaje = ("ERROR: " + ex.Message);
-            }
-        }
-
-        public void guardarUsuarios(string id, string nombre, string contacto)
-        {
-
-            try
-            {
-                archivo = new FileStream(rutaUsuariosVentas, FileMode.Append, FileAccess.Write);
-                escritor = new StreamWriter(archivo);
-                escritor.WriteLine(id + "," + nombre + "," + contacto);
-                escritor.Close();
-                //mensaje = ("se ha registrado el seguro");
-
-            }
-            catch (IOException ex)
-            {
-                mensaje = ("ERROR: " + ex.Message);
-            }
-        }
-
-        public void BuscarSeguros(string id)
+        public void GuardarSeguro(Seguro seguro)
         {
             try
             {
-
-
-                archivo = new FileStream(rutaSeguros, FileMode.Open, FileAccess.Read);
-                lector = new StreamReader(archivo);
-                string Linea;
-                string[] cadena = new string[4];
-                bool encontro = false;
-                int pos = 0, i = 0;
-                while ((Linea = lector.ReadLine()) != null)
+                using (var archivo = new FileStream(rutaSeguros, FileMode.Append, FileAccess.Write))
+                using (var escritor = new StreamWriter(archivo))
                 {
-                    cadena = Linea.Split(new char[] { ',' });
-                    if (cadena[0] == id)
-                    {
-                        codigo = cadena[0];
-                        tipoSeguro = cadena[1];
-                        incremento = cadena[2];
-                        valor = cadena[3];
-                        encontro = true;
-                        pos = i;
-                    }
-                    i++;
+                    escritor.WriteLine($"{seguro.Codigo},{seguro.Tipo},{seguro.PorcentajeIncremento},{seguro.Valor}");
                 }
-                lector.Close();
+                mensaje = "Se ha registrado el seguro";
             }
             catch (IOException ex)
             {
-                mensaje = ("ERROR: " + ex.Message);
+                mensaje = "ERROR: " + ex.Message;
             }
-
         }
 
-        public void BuscarUsuarios(string id)
+
+        public void GuardarUsuario(Usuario usuario)
         {
             try
             {
-
-
-                archivo = new FileStream(rutaUsuariosVentas, FileMode.Open, FileAccess.Read);
-                lector = new StreamReader(archivo);
-                string Linea;
-                string[] cadena = new string[3];
-                bool encontro = false;
-                int pos = 0, i = 0;
-                while ((Linea = lector.ReadLine()) != null)
+                using (var archivo = new FileStream(rutaUsuariosVentas, FileMode.Append, FileAccess.Write))
+                using (var escritor = new StreamWriter(archivo))
                 {
-                    cadena = Linea.Split(new char[] { ',' });
-                    if (cadena[0] == id)
-                    {
-                        IdUsuario = cadena[0];
-                        NombreUsuario = cadena[1];
-                        ContactoUsuario = cadena[2];
-                        encontro = true;
-                        pos = i;
-                    }
-                    i++;
+                    escritor.WriteLine($"{usuario.Id},{usuario.Nombre},{usuario.Contacto}");
                 }
-                lector.Close();
+                mensaje = "Se ha registrado el usuario";
             }
             catch (IOException ex)
             {
-                mensaje = ("ERROR: " + ex.Message);
+                mensaje = "ERROR: " + ex.Message;
             }
-
         }
+
+
+        public Seguro BuscarSeguro(string id)
+        {
+            Seguro seguroEncontrado = null;
+            try
+            {
+                using (var archivo = new FileStream(rutaSeguros, FileMode.Open, FileAccess.Read))
+                using (var lector = new StreamReader(archivo))
+                {
+                    string linea;
+                    while ((linea = lector.ReadLine()) != null)
+                    {
+                        var cadena = linea.Split(',');
+                        if (cadena[0] == id)
+                        {
+                            seguroEncontrado = new Seguro
+                            {
+                                Codigo = cadena[0],
+                                Tipo = cadena[1],
+                                PorcentajeIncremento = decimal.Parse(cadena[2]),
+                                Valor = decimal.Parse(cadena[3])
+                            };
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                mensaje = "ERROR: " + ex.Message;
+            }
+            return seguroEncontrado;
+        }
+
+
+
+        public Usuario BuscarUsuario(string id)
+        {
+            Usuario usuarioEncontrado = null;
+            try
+            {
+                using (var archivo = new FileStream(rutaUsuariosVentas, FileMode.Open, FileAccess.Read))
+                using (var lector = new StreamReader(archivo))
+                {
+                    string linea;
+                    while ((linea = lector.ReadLine()) != null)
+                    {
+                        var cadena = linea.Split(',');
+                        if (cadena[0] == id)
+                        {
+                            usuarioEncontrado = new Usuario
+                            {
+                                Id = cadena[0],
+                                Nombre = cadena[1],
+                                Contacto = cadena[2]
+                            };
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (IOException ex)
+            {
+                mensaje = "ERROR: " + ex.Message;
+            }
+            return usuarioEncontrado;
+        }
+
 
         public List<string> ListadoSeguro()
         {
             try
             {
-                archivo = new FileStream(rutaSeguros, FileMode.Open, FileAccess.Read);
-                lector = new StreamReader(archivo);
-                string linea;
-                while ((linea = lector.ReadLine()) != null)
-                { // Lee líneas mientras haya (mientras sean !=null)
-                    listaSeguros.Add(linea);
+                using (var archivo = new FileStream(rutaSeguros, FileMode.Open, FileAccess.Read))
+                using (var lector = new StreamReader(archivo))
+                {
+                    string linea;
+                    while ((linea = lector.ReadLine()) != null)
+                    {
+                        listaSeguros.Add(linea);
+                    }
                 }
-                lector.Close();
             }
             catch (IOException ex)
             {
-                mensaje = ("ERROR: " + ex.Message);
+                mensaje = "ERROR: " + ex.Message;
             }
             return listaSeguros;
         }
+
         public List<string> ListadoUsuario()
         {
             try
             {
-                archivo = new FileStream(rutaUsuariosVentas, FileMode.Open, FileAccess.Read);
-                lector = new StreamReader(archivo);
-                string linea;
-                while ((linea = lector.ReadLine()) != null)
-                { // Lee líneas mientras haya (mientras sean !=null)
-                    listaUsuarios.Add(linea);
+                using (var archivo = new FileStream(rutaUsuariosVentas, FileMode.Open, FileAccess.Read))
+                using (var lector = new StreamReader(archivo))
+                {
+                    string linea;
+                    while ((linea = lector.ReadLine()) != null)
+                    {
+                        listaUsuarios.Add(linea);
+                    }
                 }
-                lector.Close();
             }
             catch (IOException ex)
             {
-                mensaje = ("ERROR: " + ex.Message);
+                mensaje = "ERROR: " + ex.Message;
             }
             return listaUsuarios;
-
         }
+
 
     }
 }
